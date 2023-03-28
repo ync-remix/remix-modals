@@ -1,4 +1,4 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -7,7 +7,6 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/react/routeModules";
 import styles from "~/index.css";
 import { NewTweetModal } from "./components/NewTweetModal";
 import { ModalRouter, ModalRoute } from "@/remix-modals";
@@ -40,10 +39,12 @@ export default function App() {
         <Scripts />
         <LiveReload />
         <ModalRouter>
-          <ModalRoute path="new_tweet" component={<NewTweetModal />} />
+          <ModalRoute 
+              path="new_tweet" 
+              component={<NewTweetModal />} />
           <ModalRoute
-            path="edit_tweet"
-            component={<NewTweetModal title="This is another modal" />}
+              path="edit_tweet"
+              component={<NewTweetModal title="This is another modal" />}
           />
         </ModalRouter>
       </body>
